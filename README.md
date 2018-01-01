@@ -1,6 +1,6 @@
 # INFO 343-B In-Class Exercises Repo
 
-This repo was created for you by GitHub classroom and is your own personal repo for our in-class exercises. Clone this repo to your development machine so that you can code along with me, and save your work at the end of class.
+**DO NOT FORK THIS REPO.** This repo was created for you by GitHub classroom and is your own personal repo for our in-class exercises. Clone this repo to your development machine so that you can code along with me. And the end of each class, commit and push your changes up to GitHub to save/backup your work.
 
 ## Pulling Updates
 
