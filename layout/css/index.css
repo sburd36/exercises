@@ -19,15 +19,16 @@ and set text color to white, and ensure the height is at least 200px */
 /* TODO: set the font size of the <h1> in the <header> to 5rem
 and the font weight to 200 */
 
-/* TODO: set the height of the SVG icon to 3rem */
+/* TODO: set the height of the SVG icon to 3rem
+and tell it to use the current text color for its fill color */
 
-/* TODO: make the color of the hyperlink icon white instead of blue
+/* TODO: make the color of the hyperlink white instead of blue
 and when it has focus/hover change the color to #FF9800, 
 from Material Design Color Palette: 
 https://material.io/guidelines/style/color.html#color-color-palette */
 
-/* TODO: make the <div class="col"> elements layout side-by-side instead of stacked */
-
+/* TODO: make the <div class="col"> elements layout side-by-side instead of stacked 
+and use flexbox to make the numbers vertically centered within the elements */
 .col {
     background-color: #FF9800; 
     font-size: 2rem;
@@ -37,5 +38,5 @@ https://material.io/guidelines/style/color.html#color-color-palette */
 }
 
 /* TODO: set the background color of every-other <div class="col"> element 
-to #E65100 so that we can see where the column begin/end */
+to #E65100 so that we can see where the columns begin/end */
 
