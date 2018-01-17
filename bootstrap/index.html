@@ -8,12 +8,13 @@
     <title>Bootstrap Exercises</title>
 
     <!-- TODO: tell the browser to use the img/page-icon.png as the page icon -->
-    
+    <link rel="icon" href="img/page-icon.png">
     
     <!-- TODO: add a <link> to the CDN-hosted Bootstrap CSS file
     See: https://getbootstrap.com/docs/4.0/getting-started/introduction/#css
     YOU MAY NOT ADD YOUR OWN CSS FILE! ALL STYLING MUST BE DONE USING BOOTSTRAP CLASSES!
      -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 
     </head>
 
@@ -28,11 +29,11 @@
         https://getbootstrap.com/docs/4.0/content/typography/#display-headings
         https://getbootstrap.com/docs/4.0/components/buttons/#button-tags
      -->
-    <header class="">
-        <div class="">
-            <h1 class="">Bootstrap Exercises</h1>
+    <header class="jumbotron jumbotron-fluid bg-primary text-white">
+        <div class="container">
+            <h1 class="display-4">Bootstrap Exercises</h1>
             <p>
-                <a href="https://getbootstrap.com/" class="">Learn More</a>
+                <a href="https://getbootstrap.com/" class="btn btn-warning">Learn More</a>
             </p>
         </div>
     </header>
@@ -46,10 +47,10 @@
             https://getbootstrap.com/docs/4.0/utilities/spacing/
         -->
         <section class="">
-            <div class="">
+            <div class="container">
                 <h2>Alerts</h2>
-                <div class="">Danger Will Robinson, Danger!</div>
-                <div class="">All changes saved!</div>        
+                <div class="alert alert-danger">Danger Will Robinson, Danger!</div>
+                <div class="alert alert-success">All changes saved!</div>        
             </div>
         </section>
 
@@ -62,16 +63,16 @@
             https://getbootstrap.com/docs/4.0/utilities/colors/
             https://getbootstrap.com/docs/4.0/utilities/text/#text-alignment
          -->
-        <section class="">
-            <div class="">
+        <section class="bg-secondary text-white p-4">
+            <div class="container">
                 <h2 class="">Responsive Grid</h2>
-                <div class="">
-                    <div class="">1</div>
-                    <div class="">2</div>
-                    <div class="">3</div>
-                    <div class="">4</div>
-                    <div class="">5</div>
-                    <div class="">6</div>
+                <div class="row text-center">
+                    <div class="col-md-6 col-lg-4 col-xl bg-info">1</div>
+                    <div class="col-md-6 col-lg-4 col-xl bg-primary">2</div>
+                    <div class="col-md-6 col-lg-4 col-xl bg-info">3</div>
+                    <div class="col-md-6 col-lg-4 col-xl bg-primary">4</div>
+                    <div class="col-md-6 col-lg-4 col-xl bg-info">5</div>
+                    <div class="col-md-6 col-lg-4 col-xl bg-primary">6</div>
                 </div>
             </div>
         </section>
