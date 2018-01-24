@@ -3,6 +3,9 @@
 //TODO: put the runtime interpreter into strict mode
 "use strict";
 
+//Read/Review my Functional Programming in JavaScript tutorial
+//https://drstearns.github.io/tutorials/jsfunctional/
+
 //FILTERING
 /**
  * Returns true if record.rain === true
@@ -27,12 +30,17 @@ function isRainy(record) {
  * @returns {Array}
  */
 function filter(array, predicate) {
+    //declare an empty output array
     let output = [];
+    //loop over each element in the array
     for (let i = 0; i < array.length; i++) {
+        //if the predicate function returns a truthy value...
         if (predicate(array[i])) {
+            //push the element into the output array
             output.push(array[i]);
         }
     }
+    //return the output array
     return output;
 }
 
@@ -126,31 +134,62 @@ function descending(comparator) {
     }
 }
 
+//use byTempMax to sort the rainyDays array by the tempMax property
 let rainyByTemp = rainyDays.sort(byTempMax);
+//log the first 10 elements to the console so we can see them
 console.log(rainyByTemp.slice(0,10));
+//now sort the rainyDays array by tempMax descending
+//note that descending() works with _any_ comparator function
 let rainyByTempDesc = rainyDays.sort(descending(byTempMax));
 console.log(rainyByTempDesc.slice(0,10));
 
 //MAPPING
+
+/**
+ * Returns just the tempMax value from the provided record
+ * @param {WeatherRecord} record 
+ * @returns {number}
+ */
 function pluckTempMax(record) {
     return record.tempMax;
 }
 
+/**
+ * All Arrays have a built-in .map() method, but if you want
+ * to understand what it does, just look at the code in this
+ * function. This function does exactly what .map() does.
+ * @param {Array} array 
+ * @param {function(*)} transformer 
+ */
 function map(array, transformer) {
+    //delcare an output array
     let output = [];
+    //loop over each element in the array
     for (let i = 0; i < array.length; i++) {
+        //invoke the transformer() function
+        //and push whatever it returns into
+        //the output array
         output.push(transformer(array[i]));
     }
+    //return the output array
     return output;
 }
 
+//slice off the first 10 from the rainyByTempDesc array
 let warmestRainyDays = rainyByTempDesc.slice(0,10);
+//map that array to extract just the tempMax values
 let warmestRainyTemps = warmestRainyDays.map(pluckTempMax);
 console.log(warmestRainyTemps);
 
 //JOINING
+//join all of the elements in warmestRainyTemps into
+//a single string with "," in between each element
 console.log(warmestRainyTemps.join(","));
 
+//now let's put it all together!
+//you can see how this now starts to look
+//very declarative, and it's also very
+//easy to read and understand
 let x = WEATHER.filter(isRainy)
     .sort(descending(byTempMax))
     .slice(0,10)
@@ -161,8 +200,17 @@ console.log(x);
 
 //REDUCING
 
+/**
+ * Returns a new accumulator value that is the
+ * sum of `acc` and `record.tempMax`
+ * @param {number} acc 
+ * @param {WeatherRecord} record 
+ * @returns {number}
+ */
 function reduceSumTempMax(acc, record) {
     return acc + record.tempMax;
 }
+//reduce the WEATHER array to get the sum of all tempMax property values
 let sumTempMax = WEATHER.reduce(reduceSumTempMax, 0);
+//calculate and log the average tempMax
 console.log("average tempMax was %d", sumTempMax / WEATHER.length);
