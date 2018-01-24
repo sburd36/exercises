@@ -6,6 +6,7 @@
         "node_modules",
         "data",
         "constitution.js",
-        "yob1997.js"
+        "yob1997.js",
+        "seaweather-1948-2017.js"
     ]
 }
