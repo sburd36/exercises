@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Music</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <header class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1>🎵 iTunes</h1>
+            <p>Search for content on iTunes</p>
+        </div>
+    </header>
+    <main>
+        <section class="pb-4">
+            <div class="container">
+                <form action="#" id="search-form">
+                    <input type="text" class="form-control" placeholder="what do you want to listen to?">
+                </form>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <!-- for showing feedback -->
+                <div class="progress d-none">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated"></div>                        
+                </div>
+                <!-- for error messages -->
+                <div class="alert alert-danger d-none"></div>
+                <!-- for the search results -->
+                <div id="results"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- fetch() polyfill for older browsers that don't implement it natively -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+    <!-- our script -->
+    <script src="js/index.js"></script>
+</body>
+
+</html>
