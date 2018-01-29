@@ -66,7 +66,21 @@ function render(state) {
 //HINT: remember that users can click the Start button multiple
 //times before clicking Stop, so make sure you handle that
 //appropriately (i.e., don't start another timer).
-
+document.querySelector(".start-button")
+    .addEventListener("click", function() {
+        //if we already started the timer, just return
+        if (state.timer) {
+            return;
+        }
+        //capture the current time
+        state.startTime = Date.now();
+        //start a timer that fires once a second (1000 milliseconds)
+        //and hold on to the timer ID in state.timer
+        state.timer = setInterval(function() {
+            //call our render() function passing the current state
+            render(state);
+        }, 1000);
+    });
 
 //TODO: select the <button class="stop-button"> element
 //and add a click event listener. When the button is clicked,
