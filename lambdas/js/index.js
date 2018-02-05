@@ -1,10 +1,6 @@
 //@ts-check
 "use strict";
 
-//The following define a type that describes the properties
-//on each record in the data/yob1997.json array. Your functions
-//will be passed an array of these
-
 /**
  * @typedef NameRecord
  * @property {string} name
@@ -22,9 +18,11 @@
  * @param {string} name
  * @returns {NameRecord[]}
  */
-function getRecordsWithNamePrefix(nameRecordsArray, name) {
-    //TODO: implement this according to the comments above
-    //HINT: use .filter() with a lambda function!
+export function getRecordsWithNamePrefix(nameRecordsArray, name) {
+    //TODO: implement this according to the comments above.
+    //HINT: use .filter() and pass a lambda function to it
+    //DO NOT declare another function to do this: use a lambda
+    //so that you can practice using them
     //https://drstearns.github.io/tutorials/es6/#seclambdafunctions
 }
 
@@ -34,10 +32,14 @@ function getRecordsWithNamePrefix(nameRecordsArray, name) {
  * @param {NameRecord[]} nameRecordsArray 
  * @returns {string}
  */
-function getNameWithMaxCount(nameRecordsArray) {
-    //TODO: implement this according to the comments above
-    //HINT: use .reduce() with a lambda function!
-    //https://drstearns.github.io/tutorials/es6/#seclambdafunctions
+export function getNameWithMaxCount(nameRecordsArray) {
+    //TODO: implement according to the comments above
+    //HINT: use .reduce() with a lambda function that
+    //uses the ternary operator to do all of this in a
+    //very compact way
+    //DO NOT declare another function to do this: use a lambda
+    //so that you can practice using them
+    //https://drstearns.github.io/tutorials/javascript/#secternaryconditionoperator
     
 }
 
@@ -55,29 +57,13 @@ function getNameWithMaxCount(nameRecordsArray) {
  * @param {number} max 
  * @returns {string[]}
  */
-function getMostPopularNames(nameRecordsArray, sex, max) {
-    //TODO: implement this according to the comments above
-    //HINT: use .filter(), .sort(), .slice(), and .map() 
-    //and pass lambda functions to each of those operations!
-    //https://drstearns.github.io/tutorials/es6/#seclambdafunctions
-
+export function getMostPopularNames(nameRecordsArray, sex, max) {
+    //TODO: implement this according to the comments above.
+    //HINT: chain together .filter(), .sort(), .slice(), and
+    //.map() and use lambdas with each to create a very compact
+    //and clear implementation
+    //DO NOT declare additional functions to do this: use lambdas
+    //so that you can practice using them
 
 }
 
-
-
-
-
-/* DO NOT MODIFY ANYTHING AFTER THIS 
-These statements are necessary to make the functions
-above importable by the Jest testing framework.
-*/
-//@ts-ignore
-if (module && module.exports) {
-    //@ts-ignore
-    module.exports = {
-        getRecordsWithNamePrefix,
-        getNameWithMaxCount,
-        getMostPopularNames,
-    };
-}

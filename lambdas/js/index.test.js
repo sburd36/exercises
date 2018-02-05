@@ -1,7 +1,7 @@
 "use strict";
 
-const index = require("./index.js");
-const records = require("../data/yob1997.json");
+import * as index from "./index.js";
+import records from "../data/yob1997.json";
 
 describe("getRecordsWithNamePrefix", () => {
     it("should return the correct records given a prefix", () => {
