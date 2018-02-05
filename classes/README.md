@@ -9,3 +9,13 @@ npm install
 # do this each time you want to run the tests
 npm test
 ```
+
+To automatically re-run the tests after each change to your source files, you can use **either of** these two commands:
+
+```bash
+# pass the --watch flag to jest
+npm test -- --watch
+
+# or use npx to call jest directly
+npx jest --watch
+```
