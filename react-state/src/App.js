@@ -22,8 +22,10 @@ class App extends Component {
                         </div>
                     </section>
                     <section>
-                        <div className="container results">
-                            TODO: render tracks
+                        <div className="container">
+                            <div className="results">
+                                TODO: handle search and render results
+                            </div>
                         </div>
                     </section>
                 </main>
