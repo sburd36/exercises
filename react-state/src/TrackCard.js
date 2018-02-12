@@ -8,7 +8,7 @@ import React from "react";
 export default class TrackCard extends React.Component {
     render() {
         return (
-            <figure>
+            <figure className="track">
                 <img src={this.props.track.artworkUrl100} alt={this.props.track.trackName} />
                 <figcaption>
                     {this.props.track.trackName}

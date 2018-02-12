@@ -1,4 +1,6 @@
 import React from "react";
+import {Link} from "react-router-dom";
+import {ROUTES} from "./constants";
 
 export default class SignUpView extends React.Component {
     render() {
@@ -11,7 +13,7 @@ export default class SignUpView extends React.Component {
                 </header>
                 <main>
                     <div className="container">
-                        <p>Already have an account? Sign In!</p>
+                        <p>Already have an account? <Link to={ROUTES.signIn}>Sign In!</Link></p>
                     </div>
                 </main>
             </div>

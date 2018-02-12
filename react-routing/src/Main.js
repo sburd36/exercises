@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class SignInView extends React.Component {
+export default class MainView extends React.Component {
     render() {
         return (
             <div>
@@ -8,7 +8,7 @@ export default class SignInView extends React.Component {
                     <div className="container-fluid">
                         <div className="row align-items-center">
                             <div className="col">
-                                <h1 className="col">#TODO: show channel name here</h1>
+                                <h1 className="col">#{this.props.match.params.channelName}</h1>
                             </div>
                             <div className="col-auto">
                                 <svg width="24" height="24" fill="#FFF" viewBox="0 0 24 24"

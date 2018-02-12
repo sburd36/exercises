@@ -1,6 +1,14 @@
 import React from "react";
+import {Link} from "react-router-dom";
+import {ROUTES} from "./constants";
 
 export default class SignInView extends React.Component {
+    handleSubmit(evt) {
+        evt.preventDefault();
+        //do your authentication
+        //if it was successful, then
+        this.props.history.push(ROUTES.generalChannel);
+    }
     render() {
         return (
             <div>
@@ -11,7 +19,7 @@ export default class SignInView extends React.Component {
                 </header>
                 <main>
                     <div className="container">
-                        <form>
+                        <form onSubmit={evt => this.handleSubmit(evt)}>
                             <div className="form-group">
                                 <label htmlFor="email">Email Address</label>
                                 <input type="text"
@@ -30,7 +38,7 @@ export default class SignInView extends React.Component {
                                 <button type="submit" className="btn btn-primary">Sign In</button>
                             </div>
                         </form>
-                        <p>Don't have an account yet? Sign Up!</p>
+                        <p>Don't have an account yet? <Link to={ROUTES.signUp}>Sign Up!</Link></p>
                     </div>
                 </main>
             </div>
