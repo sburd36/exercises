@@ -61,9 +61,14 @@ class App extends Component {
     handleSignIn() {
         //TODO: sign in using the email and password
         //state values
+        this.setState({working: true});
+        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+            .catch(err => this.setState({fberror: err}))
+            .then(() => this.setState({working: false}));
     }
     handleSignOut() {
         //TODO: sign out
+        firebase.auth().signOut();
     }
     render() {
         return (
@@ -78,14 +83,17 @@ class App extends Component {
                 }                
                 <p>
                     <button className="btn btn-info mr-2"
+                        disabled={this.state.working}
                         onClick={() => this.handleSignUp()}>
                         Sign Up
                     </button>
                     <button className="btn btn-success mr-2"
+                        disabled={this.state.working}
                         onClick={() => this.handleSignIn()}>
                         Sign In
                     </button>
                     <button className="btn btn-danger"
+                        disabled={this.state.working}
                         onClick={() => this.handleSignOut()}>
                         Sign Out
                     </button>
