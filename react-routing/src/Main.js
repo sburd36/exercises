@@ -1,6 +1,19 @@
 import React from "react";
+import {Link} from "react-router-dom";
+import {ROUTES} from "./constants";
 
 export default class MainView extends React.Component {
+    componentDidMount() {
+        console.log("main view did mount");
+    }
+    componentWillUnmount() {
+        console.log("main view will unmount");
+    }
+    componentWillReceiveProps(nextProps) {
+        console.log("switching from %s channel to %s channel",
+            this.props.match.params.channelName,
+            nextProps.match.params.channelName);
+    }
     render() {
         return (
             <div>
@@ -23,7 +36,16 @@ export default class MainView extends React.Component {
                     </div>
                 </header>
                 <main>
-                    <p>TODO: Show channel changing links here</p>
+                    <ul>
+                        <li>
+                            {
+                                this.props.match.params.channelName !== "general" ? 
+                                <Link to={ROUTES.generalChannel}>general</Link> :
+                                "general"
+                            }
+                        </li>
+                        <li><Link to={ROUTES.randomChannel}>random</Link></li>
+                    </ul>
                 </main>
             </div>
         );

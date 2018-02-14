@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import firebase from "firebase/app";
+import "firebase/auth";
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -27,6 +30,7 @@ class App extends Component {
         //TODO: listen for Firebase authentication
         //state changes and set the `currentUser`
         //state property
+        this.authUnlisten = firebase.auth().onAuthStateChanged(user => this.setState({currentUser: user}));
     }
     /**
      * Called by react when this component is
@@ -39,11 +43,20 @@ class App extends Component {
         //authentication state changes so that
         //we don't call this.setState() while
         //unmounted.
+        this.authUnlisten();
     }
     handleSignUp() {
         //TODO: create a new Firebase user account
         //using the email, password, and displayName
         //state values
+        this.setState({working: true});
+        firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .then(user => user.updateProfile({
+                displayName: this.state.displayName
+            }))
+            .catch(err => this.setState({fberror: err}))
+            .then(() => this.setState({working: false}));
+
     }
     handleSignIn() {
         //TODO: sign in using the email and password
