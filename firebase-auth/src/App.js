@@ -54,6 +54,7 @@ class App extends Component {
             .then(user => user.updateProfile({
                 displayName: this.state.displayName
             }))
+            .then(() => this.setState({fberror: undefined}))
             .catch(err => this.setState({fberror: err}))
             .then(() => this.setState({working: false}));
 
@@ -63,6 +64,7 @@ class App extends Component {
         //state values
         this.setState({working: true});
         firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+            .then(() => this.setState({fberror: undefined}))
             .catch(err => this.setState({fberror: err}))
             .then(() => this.setState({working: false}));
     }
