@@ -31,6 +31,14 @@ class App extends Component {
         //and once the user is authenticated, get a firebase
         //reference to this user's tasks, and start listening
         //for value change events
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                let userID = user.uid;
+                let ref = firebase.database().ref(`${userID}/tasks`);
+                ref.on("value", snapshot => this.setState({tasksSnap: snapshot}));
+                this.setState({tasksRef: ref});
+            }
+        });
 
     }
     /**
@@ -54,9 +62,9 @@ class App extends Component {
                 </header>
                 <main>
                     <div className="container">
-                        <NewTaskForm  />
+                        <NewTaskForm tasksRef={this.state.tasksRef} />
                         <div className="mt-2"></div>
-                        <TaskList  />
+                        <TaskList tasksSnap={this.state.tasksSnap} />
                         <div className="mt-2">
                             <PurgeButton  />
                         </div>
