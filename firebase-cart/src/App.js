@@ -47,6 +47,10 @@ class App extends Component {
             .then(data => this.setState({tracks: data.results, fetchError: undefined}))
             .catch(err => this.setState({fetchError: err}));
     }
+    /**
+     * Adds the track to the database reference
+     * @param {Object} track 
+     */
     handleAdd(track) {
         //TODO: add the track passed as the parameter
         //to the Firebase cart snapshot (stored as `cartSnap`

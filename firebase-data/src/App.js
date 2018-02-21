@@ -31,11 +31,11 @@ class App extends Component {
         //and once the user is authenticated, get a firebase
         //reference to this user's tasks, and start listening
         //for value change events
-        firebase.auth().onAuthStateChanged(user => {
+        this.unlistenAuth = firebase.auth().onAuthStateChanged(user => {
             if (user) {
                 let userID = user.uid;
                 let ref = firebase.database().ref(`${userID}/tasks`);
-                ref.on("value", snapshot => this.setState({tasksSnap: snapshot}));
+                this.valueListener = ref.on("value", snapshot => this.setState({tasksSnap: snapshot}));
                 this.setState({tasksRef: ref});
             }
         });
@@ -49,6 +49,8 @@ class App extends Component {
     componentWillUnmount() {
         //TODO: stop listening for authentication state changes
         //and stop listening for value change events
+        this.unlistenAuth();
+        this.state.tasksRef.off("value", this.valueListener);
     }
     render() {
         //TODO: pass the firebase reference/snapshot to our components
@@ -66,7 +68,7 @@ class App extends Component {
                         <div className="mt-2"></div>
                         <TaskList tasksSnap={this.state.tasksSnap} />
                         <div className="mt-2">
-                            <PurgeButton  />
+                            <PurgeButton tasksRef={this.state.tasksRef} />
                         </div>
                     </div>
                 </main>
