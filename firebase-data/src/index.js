@@ -4,6 +4,8 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/database";
 
 //config for a previously-created Firebase project
 //we will all use this same project, but keep our
